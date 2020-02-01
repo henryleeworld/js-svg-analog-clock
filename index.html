@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:title" content="可擴充向量圖形（SVG）類比時鐘" />
+    <meta property="og:description" content="以可擴充向量圖形（SVG）規格所建立的類比時鐘會用指針及角度表示時間，數位時鐘則是用數字的方式表示。" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="css/analog-clock.css">
+    <title>可擴充向量圖形（SVG）類比時鐘</title>
+</head>
+<body>
+    <div class="analog-clock">
+        <svg viewBox="-1024 -1024 2048 2048" class="clock">
+            <defs>
+                <path id="mark-1" d="M -20,-1000 l 40,0 0,100 -40,0 z" />
+                <path id="mark-2" d="M -40,-1000 l 80,0 0,240 -80,0 z" />
+                <path id="mark-3" d="M -40,-1000 l 80,0 0,300 -80,0 z" />
+                <path id="hour" d="M -50,-600  l 50,-50 50,50 0,800  -100,0 z" />
+                <path id="minute" d="M -40,-900  l 40,-40 40,40 0,1180 -80,0  z" />
+                <g id="second">
+                    <path d="M -10,-910 l  10,-10 10,10 2,300 -24,0 z
+                 M -13,-390 l  26,0         7,690 -40,0 z" />
+                    <path d="M   0,-620 a 120,120 0 0 1 0,240
+                            a 120,120 0 0 1 0,-240 z
+                 M   0,-560 a  60,60  0 0 0 0,120
+                            a  60,60  0 0 0 0,-120 z" />
+                </g>
+                <g id="face-1">
+                    <use xlink:href="#mark-1" transform="rotate(06)" />
+                    <use xlink:href="#mark-1" transform="rotate(12)" />
+                    <use xlink:href="#mark-1" transform="rotate(18)" />
+                    <use xlink:href="#mark-1" transform="rotate(24)" />
+                </g>
+                <g id="face-2">
+                    <use xlink:href="#face-1" />
+                    <use xlink:href="#face-1" transform="rotate(30)" />
+                    <use xlink:href="#face-1" transform="rotate(60)" />
+                    <use xlink:href="#mark-3" />
+                    <use xlink:href="#mark-2" transform="rotate(30)" />
+                    <use xlink:href="#mark-2" transform="rotate(60)" />
+                </g>
+                <g id="face">
+                    <use xlink:href="#face-2" />
+                    <use xlink:href="#face-2" transform="rotate(90)" />
+                    <use xlink:href="#face-2" transform="rotate(180)" />
+                    <use xlink:href="#face-2" transform="rotate(270)" />
+                </g>
+            </defs>
+            <circle class="bg" r="1024" />
+            <use xlink:href="#face" class="fc" />
+            <use xlink:href="#minute" class="h2 analog-minute" transform="rotate(54)" />
+            <use xlink:href="#hour" class="h1 analog-hour" transform="rotate(304.5)" />
+            <use xlink:href="#second" class="h3 analog-second" transform="rotate(12)" />
+        </svg>
+        <div class="digital-clock">
+            <span class="digital-hour"></span>:
+            <span class="digital-minute"></span>:
+            <span class="digital-second"></span>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" defer></script>
+    <script src="js/analog-clock.js" defer></script>
+</body>
+</html>

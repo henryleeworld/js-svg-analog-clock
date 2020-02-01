@@ -1,0 +1,30 @@
+body {
+    background: #333;
+}
+
+.analog-clock {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    width: 40%;
+    text-align: center;
+}
+.analog-clock .clock {
+    width: 70%;
+}
+.analog-clock .digital-clock {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    color: #66CD00;
+    font-size: 35px;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.bg {stroke: none; fill: white;}
+.fc {stroke: none; fill: black;}
+.h1 {stroke: none; fill: black;}
+.h2 {stroke: none; fill: #333;}
+.h3 {stroke: none; fill: #aa0000;}
